@@ -1,4 +1,4 @@
-#include<stdio.h>
+п»ї#include<stdio.h>
 #include<stdlib.h>
 #include<locale.h>
 #include<time.h>
@@ -12,15 +12,15 @@ void main()
 	
 	do
 	{
-		printf("введите номер задания: ");
+		printf("РІРІРµРґРёС‚Рµ РЅРѕРјРµСЂ Р·Р°РґР°РЅРёСЏ: ");
 		scanf("%d", &n);
 
 		switch (n)
 		{
 			case 1:
 			{
-				/*1. Дано целое число в двоичной системе счисления, т.е. последовательность цифр  0 и 1.
-				Составить программу перевода этого числа в десятичную систему счисления*/
+				/*1. Р”Р°РЅРѕ С†РµР»РѕРµ С‡РёСЃР»Рѕ РІ РґРІРѕРёС‡РЅРѕР№ СЃРёСЃС‚РµРјРµ СЃС‡РёСЃР»РµРЅРёСЏ, С‚.Рµ. РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ С†РёС„СЂ  0 Рё 1.
+				РЎРѕСЃС‚Р°РІРёС‚СЊ РїСЂРѕРіСЂР°РјРјСѓ РїРµСЂРµРІРѕРґР° СЌС‚РѕРіРѕ С‡РёСЃР»Р° РІ РґРµСЃСЏС‚РёС‡РЅСѓСЋ СЃРёСЃС‚РµРјСѓ СЃС‡РёСЃР»РµРЅРёСЏ*/
 
 
 			}
@@ -28,7 +28,7 @@ void main()
 
 			case 2:
 			{
-				/*2. В прямоугольной матрице найти наибольший из минимальных элементов строк матрицы */
+				/*2. Р’ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРѕР№ РјР°С‚СЂРёС†Рµ РЅР°Р№С‚Рё РЅР°РёР±РѕР»СЊС€РёР№ РёР· РјРёРЅРёРјР°Р»СЊРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃС‚СЂРѕРє РјР°С‚СЂРёС†С‹ */
 
 
 
@@ -36,25 +36,44 @@ void main()
 
 			case 3:
 			{
-				/*3. Ввести массив, состоящий из 15-ти элементов (двузначные целые числа).  
-				Изменить разрядность цифр, образующих элементы исходного массива и, таким образом, 
-				сформировать новый массив. Например, исходный массив: 25 71 84…, новый массив: 52 17 48….*/
-				int row, col, len;
-				printf("Введите размер матрицы: ");
-				scanf("%d", &len);
-				int *arr = NULL;
-				arr = (int *)malloc(sizeof(int)*len);
+				/*3. Р’РІРµСЃС‚Рё РјР°СЃСЃРёРІ, СЃРѕСЃС‚РѕСЏС‰РёР№ РёР· 15-С‚Рё СЌР»РµРјРµРЅС‚РѕРІ (РґРІСѓР·РЅР°С‡РЅС‹Рµ С†РµР»С‹Рµ С‡РёСЃР»Р°).  
+				РР·РјРµРЅРёС‚СЊ СЂР°Р·СЂСЏРґРЅРѕСЃС‚СЊ С†РёС„СЂ, РѕР±СЂР°Р·СѓСЋС‰РёС… СЌР»РµРјРµРЅС‚С‹ РёСЃС…РѕРґРЅРѕРіРѕ РјР°СЃСЃРёРІР° Рё, С‚Р°РєРёРј РѕР±СЂР°Р·РѕРј, 
+				СЃС„РѕСЂРјРёСЂРѕРІР°С‚СЊ РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ. РќР°РїСЂРёРјРµСЂ, РёСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ: 25 71 84вЂ¦, РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ: 52 17 48вЂ¦.*/
+
+				
+					int row = 2, col = 3, colVect = 1,  minN = -20, maxN = 50, minElement = 0, maxElement = 0;
+					double	average = 0;
+					int *arr = GetMemory(&row);
+					//int *vect = GetMemory(&row);
+					fillArrayInt(arr, &row, &col, &minN, &maxN);
+					printArrayInt(arr, &row, &col);
+
+					/*ArrayStatInt(arr, &row, &col, &minN, &maxN, &minElement, &maxElement, &average);
+					printf("min = %3d, max = %3d, aver = %3.2lf\n", minElement, maxElement, average);*/
+					
+					ArrayCol(arr, &row, &col, &minElement, &maxElement);
+					//printArrayInt(vect, &row, &colVect);
+					//printf("min = %3d, max = %3d\n", minElement, maxElement);
+				
+
+				//int row = 0, col = 1;
+				//double *arr = GetMemoryReal(&row), minN = -20, maxN = 50, minElement=0, maxElement=0, average=0;
+				//fillArrayReal(arr, &row, &col, &minN, &maxN);
+				//printArrayReal(arr, &row, &col);
+
+				//ArrayStatReal(arr, &row, &col, &minN, &maxN, &minElement, &maxElement, &average);
+				//printf("min = %3.2lf, max = %3.2lf, aver = %3.2lf\n", minElement, maxElement, average);
 
 
 
-
+				system("pause");
+				system("cls");
 			}break;
 		}
 
-		printf("продолжить 1-да 2-нет: ");
-		scanf("%d", &quit);int *Get_Memmory(int col)
+		printf("РїСЂРѕРґРѕР»Р¶РёС‚СЊ 1-РґР° 2-РЅРµС‚: ");
+		scanf("%d", &quit);int *Get_Memmory(int col);
 
-
-	} while (quit == 1);
+	} while (quit == 1); 
 
 }
